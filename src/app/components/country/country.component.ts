@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { ModalController } from '@ionic/angular';
 
 @Component({
   selector: 'app-country',
@@ -6,9 +7,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./country.component.scss'],
 })
 export class CountryComponent implements OnInit {
-
-  constructor() { }
+  @Input() titleCountry:string;
+  constructor(private closeModal:ModalController) { }
 
   ngOnInit() {}
 
+
+  private async closeModals(){
+    this.closeModal.dismiss()
+  }
 }
