@@ -12,7 +12,7 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'all',
+    path: 'home/all',
     loadChildren: () => import('./pages/all/all.module').then( m => m.AllPageModule)
   },
 ];

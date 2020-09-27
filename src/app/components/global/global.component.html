@@ -1,5 +1,12 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar mode="ios" color="dark">
+    <ion-title>Reporte global</ion-title>
+  </ion-toolbar>
+</ion-header>
 
- 
+<section class="rotateImg">
+  <ion-img src="../../assets/icon/covid.svg"></ion-img>
+</section>
   <ion-list  color="dark">
     
     <ion-item  color="dark">
@@ -34,7 +41,7 @@
 
   </ion-list>
  
-  <ion-button fill="clear" expand="block">
+  <ion-button  mode="ios" expand="block" color="danger" (click)="toAll()">
     <ion-ripple-effect></ion-ripple-effect>
     Explorar 
     <ion-icon name="chevron-forward-outline"></ion-icon>

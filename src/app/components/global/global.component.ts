@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { timer } from 'rxjs';
 import { globalCases, ServiceCovidService, typeAllCases } from 'src/app/services/service-covid.service';
 
 @Component({
   selector: 'app-global',
   templateUrl: './global.component.html',
   styleUrls: ['./global.component.scss'],
-  providers: [
-    ServiceCovidService
-  ]
+  providers: [  ServiceCovidService ]
 })
 export class GlobalComponent implements OnInit {
   private global:globalCases={
@@ -22,18 +22,20 @@ export class GlobalComponent implements OnInit {
 
   private segmentValue:string="global";
 
-  constructor(private httpService:ServiceCovidService) {
+  constructor(
+    private router:Router,
+    private httpService:ServiceCovidService) {
     this.getGlobal()
   }
 
- private getGlobal(){
-    this.httpService.getGlobal().subscribe((resp)=>{
-      
-      this.global=resp;
-      console.log(this.global)
-      
-    })
+  private toAll():void{
+    timer(300).subscribe(()=>{this.router.navigate(["home/all"])})
   }
+  private getGlobal():void{
+      this.httpService.getGlobal().subscribe((resp)=>{
+        this.global=resp;
+      })
+    }
 
   ngOnInit() {}
 
