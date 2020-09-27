@@ -1,3 +1,41 @@
-<p>
-  global works!
-</p>
+
+ 
+  <ion-list  color="dark">
+    
+    <ion-item  color="dark">
+      <ion-label>Nuevas muertes</ion-label>
+      <ion-note  slot="end" color="light"> {{ global.NewDeaths |  number}}</ion-note>
+    </ion-item>
+
+    <ion-item color="dark">
+      <ion-label>Nuevos confirmados</ion-label>
+      <ion-note slot="end" color="light"> {{ global.NewConfirmed |  number}}</ion-note>
+    </ion-item>
+
+    <ion-item color="dark">
+      <ion-label>Nuevos recuperados</ion-label>
+      <ion-note slot="end" color="light"> {{ global.NewRecovered |  number}}</ion-note>
+    </ion-item>
+
+    <ion-item color="dark">
+      <ion-label>Total confirmados</ion-label>
+      <ion-note slot="end" color="light"> {{ global.TotalConfirmed |  number}}</ion-note>
+    </ion-item>
+
+    <ion-item color="dark">
+      <ion-label>Total recuperados</ion-label>
+      <ion-note slot="end" color="light"> {{ global.TotalConfirmed |  number}}</ion-note>
+    </ion-item>
+
+    <ion-item color="dark">
+      <ion-label>Muertes totales </ion-label>
+      <ion-note slot="end" color="light"> {{ global.TotalDeaths |  number}}</ion-note>
+    </ion-item>
+
+  </ion-list>
+ 
+  <ion-button fill="clear" expand="block">
+    <ion-ripple-effect></ion-ripple-effect>
+    Explorar 
+    <ion-icon name="chevron-forward-outline"></ion-icon>
+  </ion-button>
