@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { interval } from 'rxjs';
 import { ServiceCovidService, typeAllCases } from 'src/app/services/service-covid.service';
 
 @Component({
@@ -10,14 +11,32 @@ import { ServiceCovidService, typeAllCases } from 'src/app/services/service-covi
   ]
 })
 export class AllPage implements OnInit {
-
-  constructor(private service:ServiceCovidService) { }
+  public showSkeleton:boolean=true;
+  private allCases:typeAllCases[] = [];
+  private searchResult:string= ""
+  constructor(private service:ServiceCovidService) {}
 
   ngOnInit() {
-    this.service.getAll().subscribe((resp:typeAllCases)=>{
-      console.log(resp);
-      
-    })
+    this.verifiedConnection();
+    this.changeAll();
   }
+
+  private changeAll(){
+    this.service.getAll().subscribe((resp)=>{
+      this.allCases =resp
+    }, ()=>{return}, ()=>{this.showSkeleton=false})
+  }
+
+  private verifiedConnection(){
+    let timingHttp= interval(2000).subscribe(()=>{
+      if(this.showSkeleton==true){
+        this.changeAll()
+      }
+      else{
+        timingHttp.unsubscribe()
+      }
+    })
+   }
+
 
 }

@@ -7,12 +7,14 @@ import { IonicModule } from '@ionic/angular';
 import { AllPageRoutingModule } from './all-routing.module';
 
 import { AllPage } from './all.page';
+import { ComponentsModuleModule } from 'src/app/components/components-module.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
+    ComponentsModuleModule,
     AllPageRoutingModule
   ],
   declarations: [AllPage]

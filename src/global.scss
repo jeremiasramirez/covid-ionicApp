@@ -29,3 +29,25 @@
     padding-top:0;
     padding-bottom:0;
 }
+
+
+ion-skeleton-text{
+    border-radius:6px !important;
+    background-color: #7777;
+}
+.animateSkeleton{
+    animation: activeAnimates 1.8s infinite ease-in-out;
+    transition: 1.5s;
+}
+
+@keyframes activeAnimates{
+    from{
+        transition: 1.5s;
+        opacity: 1;
+    }
+    to{
+      
+        transition: 1.5s;
+        opacity: .4
+    }
+}

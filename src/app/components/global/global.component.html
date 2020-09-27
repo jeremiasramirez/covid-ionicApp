@@ -7,7 +7,9 @@
 <section class="rotateImg">
   <ion-img src="../../assets/icon/covid.svg"></ion-img>
 </section>
-  <ion-list  color="dark">
+
+<app-skeleton [show]="showSkeleton"></app-skeleton>
+  <ion-list  color="dark" *ngIf="!showSkeleton">
     
     <ion-item  color="dark">
       <ion-label>Nuevas muertes</ion-label>

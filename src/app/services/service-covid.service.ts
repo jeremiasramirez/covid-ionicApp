@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core'; 
+import { LoadingController } from '@ionic/angular';
 import { Observable } from 'rxjs';
 import { ajax, AjaxResponse } from "rxjs/ajax"
 import { pluck, delay } from 'rxjs/operators'
@@ -6,8 +7,11 @@ import { pluck, delay } from 'rxjs/operators'
 @Injectable()
 export class ServiceCovidService {
   private ApiURI : string = 'https://api.covid19api.com/summary';
-  private apiImg: string="https://restcountries.eu/rest/v2/name/{name}"
-  constructor(){ }
+  private apiImg: string="https://restcountries.eu/rest/v2/name/{name}";
+
+   
+
+  constructor(   ){   }
 
   private  getGlobalCase(){
     return ajax.get(this.ApiURI).pipe(delay(500),pluck('response','Global'))
@@ -21,7 +25,7 @@ export class ServiceCovidService {
   public getAll(){
     return this.getAllCase()
   }
-
+ 
   public getGlobal(){
     return this.getGlobalCase();
   }

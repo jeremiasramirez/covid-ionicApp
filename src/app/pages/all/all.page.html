@@ -1,7 +1,7 @@
 <ion-header class="ion-no-border" color="dark">
   <ion-toolbar color="dark">
     <br>
-    <ion-searchbar animated mode="ios"></ion-searchbar>
+    <ion-searchbar animated mode="ios" [value]="searchResult" [(ngModel)]="searchResult"></ion-searchbar>
   </ion-toolbar>
   <ion-toolbar color="dark">
     <ion-buttons slot="end">
@@ -13,5 +13,8 @@
 </ion-header>
 
 <ion-content color="dark">
+  <app-skeleton [show]="showSkeleton"></app-skeleton>
 
+  <app-countries *ngIf="!showSkeleton" [allcases]="allCases"
+  [search]="searchResult"></app-countries>
 </ion-content>

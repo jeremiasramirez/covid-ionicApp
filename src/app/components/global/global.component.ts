@@ -19,7 +19,7 @@ export class GlobalComponent implements OnInit {
     TotalRecovered: 0
   }
   private all:typeAllCases[]= [];
-
+  public showSkeleton:boolean=true;
   private segmentValue:string="global";
 
   constructor(
@@ -34,7 +34,7 @@ export class GlobalComponent implements OnInit {
   private getGlobal():void{
       this.httpService.getGlobal().subscribe((resp)=>{
         this.global=resp;
-      })
+      }, ()=>{return}, ()=>{this.showSkeleton=false})
     }
 
   ngOnInit() {}

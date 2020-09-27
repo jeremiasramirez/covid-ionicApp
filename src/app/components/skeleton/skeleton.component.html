@@ -1,3 +1,11 @@
-<p>
-  skeleton works!
-</p>
+<ion-list *ngIf="show" color="dark">
+  <ion-item   color="dark" *ngFor="let falsy of [1,1,1,1]">
+    <ion-label>
+
+      <ion-skeleton-text class="animateSkeleton"  style="width: 70%;"></ion-skeleton-text>
+      <p><ion-skeleton-text style="width: 40%;"></ion-skeleton-text></p>
+      <p><ion-skeleton-text style="width: 15%;" class="animateSkeleton"></ion-skeleton-text></p>
+
+    </ion-label>
+  </ion-item>
+</ion-list>
