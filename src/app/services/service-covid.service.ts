@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core'; 
-import { LoadingController } from '@ionic/angular';
+import { LoadingController, ModalController } from '@ionic/angular';
 import { Observable } from 'rxjs';
 import { ajax, AjaxResponse } from "rxjs/ajax"
 import { pluck, delay } from 'rxjs/operators'
+import { ConnectComponent } from '../components/connect/connect.component';
 
 @Injectable()
 export class ServiceCovidService {
@@ -11,7 +12,9 @@ export class ServiceCovidService {
 
    
 
-  constructor(   ){   }
+  constructor( 
+    private connectModal:ModalController,
+    ){   }
 
   private  getGlobalCase(){
     return ajax.get(this.ApiURI).pipe(delay(500),pluck('response','Global'))
@@ -28,6 +31,17 @@ export class ServiceCovidService {
  
   public getGlobal(){
     return this.getGlobalCase();
+  }
+  
+
+   async closeReconnect(){
+    this.connectModal.dismiss()
+  }
+   async reconnect(){
+    const connects = await this.connectModal.create({
+      component: ConnectComponent
+    })
+    connects.present();
   }
 
 }

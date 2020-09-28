@@ -1,26 +1,20 @@
 import { Component, OnInit } from '@angular/core';
-import { ModalController } from '@ionic/angular';
 import { interval, timer } from 'rxjs';
-import { ConnectComponent } from 'src/app/components/connect/connect.component';
 import { ServiceCovidService, typeAllCases } from 'src/app/services/service-covid.service';
 
 @Component({
   selector: 'app-all',
   templateUrl: './all.page.html',
   styleUrls: ['./all.page.scss'],
-  providers: [
-    ServiceCovidService
-  ]
+  providers: [ServiceCovidService]
 })
 export class AllPage implements OnInit {
   public showSkeleton:boolean=true;
   private allCases:typeAllCases[] = [];
   private searchResult:string= ""
-  constructor(
-    private connectModal:ModalController,
-    private service:ServiceCovidService) {}
+  constructor(private service:ServiceCovidService) {}
 
-  ngOnInit() {
+  ngOnInit() :void{
     this.verifiedConnection();
     this.changeAll();
     this.openToReconnect();
@@ -28,7 +22,7 @@ export class AllPage implements OnInit {
 
   private async openToReconnect():Promise<any>{
     timer(5000).subscribe(()=>{
-      if (this.showSkeleton==true) this.reconnect()
+      if (this.showSkeleton==true) this.service.reconnect()
     })
   }
 
@@ -38,22 +32,13 @@ export class AllPage implements OnInit {
     }, ()=>{return}, ()=>{this.showSkeleton=false})
   }
 
-  private async closeReconnect(){
-    this.connectModal.dismiss()
-  }
-  private async reconnect(){
-    const connects = await this.connectModal.create({
-      component: ConnectComponent
-    })
-    connects.present();
-  }
 
   private verifiedConnection():void{
     
     let timingHttp= interval(5000).subscribe(()=>{
       
       if(this.showSkeleton==true)this.changeAll();  
-      else {timingHttp.unsubscribe();this.closeReconnect()}
+      else {timingHttp.unsubscribe();this.service.closeReconnect()}
       
     })
 
