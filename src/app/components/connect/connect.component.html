@@ -1,15 +1,18 @@
 <ion-header class="ion-no-border">
   <ion-toolbar color="dark" mode="ios">
-    <ion-title color="danger">Reconectando..</ion-title>
+    <ion-title color="danger">
+      <ion-icon name="wifi" color="danger"></ion-icon> 
+      Reconectando</ion-title>
 
     <ion-buttons mode="md" slot="end">
-      <ion-button (click)="closeReconnect()" color="danger"> Ocultar</ion-button>
+      <ion-button (click)="closeReconnect()" color="danger">
+        <ion-icon slot="icon-only" name="close"> Ocultar</ion-icon>
+      </ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 <ion-content color="dark">
 
- 
   <ion-spinner color="danger" ></ion-spinner>
 
    

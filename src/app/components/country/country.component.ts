@@ -6,7 +6,7 @@ import { pluck } from 'rxjs/operators';
 @Component({
   selector: 'app-country',
   templateUrl: './country.component.html',
-  styleUrls: ['./country.component.scss'],
+  styleUrls: ['./country.component.scss']
 })
 export class CountryComponent implements OnInit {
   private imageCountry:string;
@@ -14,10 +14,8 @@ export class CountryComponent implements OnInit {
 
   constructor(private closeModal:ModalController) { }
 
-  ngOnInit() {
-    this.getImage(this.data.CountryCode)
-    
-    
+  ngOnInit():void {
+    this.getImage(this.data.CountryCode) 
   }
   
   private getImage(img:string):void{

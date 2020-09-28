@@ -17,7 +17,7 @@ export class AppComponent {
   ) {
     
     this.initializeApp();
-    this.statusBar.backgroundColorByName("blue");
+    this.statusBar.backgroundColorByName("red");
   }
 
   initializeApp() {
