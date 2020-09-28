@@ -11,7 +11,7 @@ import { CountryComponent } from '../country/country.component';
 })
 export class CountriesComponent implements OnInit {
   @Input() allcases : typeAllCases[]=[];
-  @Input() search:string = "";
+  @Input() searchs:string = "";
   private endItems:number=10;
 
 

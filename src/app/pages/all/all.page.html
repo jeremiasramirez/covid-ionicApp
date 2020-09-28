@@ -13,8 +13,8 @@
 </ion-header>
 
 <ion-content color="dark">
-  <app-skeleton [show]="showSkeleton"></app-skeleton>
+  <app-skeleton [show]="showSkeleton" [arr]=[1,1,1,1,1,1,1,1]></app-skeleton>
 
   <app-countries *ngIf="!showSkeleton" [allcases]="allCases"
-  [search]="searchResult"></app-countries>
+  [searchs]="searchResult"></app-countries>
 </ion-content>

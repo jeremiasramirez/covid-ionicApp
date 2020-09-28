@@ -1,52 +1,65 @@
 <ion-header class="ion-no-border">
 
   <ion-toolbar  color="dark" mode="ios">
-    <ion-title>{{ data.Country }}</ion-title>
+    <ion-title class="animate">{{ data.Country }}</ion-title>
 
     <ion-buttons slot="start" mode="md">
       <ion-button color="danger" fill="clear" (click)="closeModals()"> 
         <ion-icon slot="icon-only" name="chevron-back-outline"></ion-icon>
       </ion-button>
     </ion-buttons>
+
   </ion-toolbar>
 
 </ion-header>
 
 <ion-content color="dark">
-  <ion-card mode="ios" color="dark">
-    <ion-card-content color="dark">
+  <ion-card mode="ios" color="dark" class="animate">
+    <ion-card-content color="dark" class="animate">
       <ion-img [src]="imageCountry"></ion-img>
     </ion-card-content>
   </ion-card>
   <ion-list color="dark" mode="ios">
 
     <ion-item color="dark">
-      <ion-label>Nuevos confirmados</ion-label>
+      <ion-label class="animate">Nuevos confirmados
+        <p>{{data.CountryCode}}</p>
+      </ion-label>
       <ion-badge slot="end" color="danger">+{{data.NewConfirmed| number}}</ion-badge>
     </ion-item>
 
     <ion-item color="dark">
-      <ion-label>Nuevos recuperados</ion-label>
+      <ion-label class="animate">Nuevos recuperados
+        <p>{{data.CountryCode}}</p>
+      </ion-label>
       <ion-badge slot="end" color="tertiary">+{{data.NewRecovered| number}}</ion-badge>
     </ion-item>
 
     <ion-item color="dark">
-      <ion-label>Nuevas muertes</ion-label>
+      <ion-label class="animate">Nuevas muertes
+        <p>{{data.CountryCode}}</p>
+      </ion-label>
       <ion-badge slot="end" color="danger">{{data.NewDeaths| number}}</ion-badge>
     </ion-item>
 
     <ion-item color="dark">
-      <ion-label>Muertes total</ion-label>
+      <ion-label class="animate">Muertes total
+        <p>{{data.CountryCode}}</p>
+      </ion-label>
       <ion-badge slot="end" color="danger">{{data.TotalDeaths| number}}</ion-badge>
     </ion-item>
 
     <ion-item color="dark">
-      <ion-label>Total confirmados</ion-label>
+      <ion-label class="animate">Total confirmados
+        <p>{{data.CountryCode}}</p>
+      </ion-label>
       <ion-badge slot="end" color="danger">{{data.TotalConfirmed | number}}</ion-badge>
     </ion-item>
 
     <ion-item color="dark">
-      <ion-label>Total recuperados</ion-label>
+      <ion-label class="animate">Total recuperados
+        <p>{{data.CountryCode}}</p>
+      </ion-label>
       <ion-badge slot="end" color="tertiary">{{data.TotalConfirmed| number}}</ion-badge>
     </ion-item>
 
