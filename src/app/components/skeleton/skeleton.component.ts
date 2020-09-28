@@ -7,7 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class SkeletonComponent implements OnInit {
   @Input() show:boolean=true;
-  @Input() arr=[1,1,1];
+  @Input() arr=[1,1,1,1];
   constructor() { }
 
   ngOnInit() {}

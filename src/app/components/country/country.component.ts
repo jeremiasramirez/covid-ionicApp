@@ -20,14 +20,14 @@ export class CountryComponent implements OnInit {
     
   }
   
-  private getImage(img:string){
+  private getImage(img:string):void{
     ajax.get(`https://restcountries.eu/rest/v2/alpha/${img}`).pipe(pluck("response","flag")).
       subscribe((imgs)=>{
         this.imageCountry=imgs
       })
   }
 
-  private async closeModals(){
+  private async closeModals():Promise<any>{
     this.closeModal.dismiss()
   }
 }

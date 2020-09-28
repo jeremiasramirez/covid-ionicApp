@@ -21,21 +21,21 @@ export class AllPage implements OnInit {
     this.changeAll();
   }
 
-  private changeAll(){
+  private changeAll():void{
     this.service.getAll().subscribe((resp)=>{
       this.allCases =resp
     }, ()=>{return}, ()=>{this.showSkeleton=false})
   }
 
-  private verifiedConnection(){
+  private verifiedConnection():void{
+    
     let timingHttp= interval(2000).subscribe(()=>{
-      if(this.showSkeleton==true){
-        this.changeAll()
-      }
-      else{
-        timingHttp.unsubscribe()
-      }
+      
+      if(this.showSkeleton==true)this.changeAll()
+      else timingHttp.unsubscribe()
+      
     })
+
    }
 
 
