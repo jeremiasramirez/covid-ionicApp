@@ -16,7 +16,7 @@ export class CountryComponent implements OnInit {
 
   ngOnInit() {
     this.getImage(this.data.CountryCode)
-    console.log(this.data);
+    
     
   }
   

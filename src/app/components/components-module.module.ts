@@ -6,6 +6,7 @@ import { ImagePipe } from '../pipes/image.pipe';
 import { SearchPipe } from '../pipes/search.pipe';
 import { SkeletonComponent } from './skeleton/skeleton.component';
 import { CountriesComponent } from './countries/countries.component';
+import { ConnectComponent } from './connect/connect.component';
 
 @NgModule({
   imports: [
@@ -15,6 +16,7 @@ import { CountriesComponent } from './countries/countries.component';
     GlobalComponent,
     CountryComponent,
     ImagePipe,
+    ConnectComponent,
     SearchPipe,
     CountriesComponent,
     SkeletonComponent
@@ -22,6 +24,7 @@ import { CountriesComponent } from './countries/countries.component';
   exports: [
     GlobalComponent,
     CountryComponent,
+    ConnectComponent,
     ImagePipe,
     CountriesComponent,
     SearchPipe,
