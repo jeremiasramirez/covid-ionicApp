@@ -1,6 +1,6 @@
 
 <ion-list color="dark">
-  <ion-item color="dark" *ngFor="let cases of allcases | slice:0:10" (click)="openModalCountry(cases)" detail>
+  <ion-item color="dark" *ngFor="let cases of allcases | slice:0:endItems" (click)="openModalCountry(cases)" detail>
   <!--
     <ion-thumbnail slot="start">
       <ion-img [src]="cases.CountryCode "></ion-img>

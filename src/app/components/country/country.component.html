@@ -1,13 +1,54 @@
 <ion-header class="ion-no-border">
 
-  <ion-toolbar  mode="ios">
-    <ion-title>{{ titleCountry }}</ion-title>
+  <ion-toolbar  color="dark" mode="ios">
+    <ion-title>{{ data.Country }}</ion-title>
 
-    <ion-buttons slot="end" mode="md">
-      <ion-button (click)="closeModals()">
-        <ion-icon slot="icon-only" name="close"></ion-icon>
+    <ion-buttons slot="start" mode="md">
+      <ion-button color="danger" fill="clear" (click)="closeModals()"> 
+        <ion-icon slot="icon-only" name="chevron-back-outline"></ion-icon>
       </ion-button>
     </ion-buttons>
   </ion-toolbar>
 
 </ion-header>
+
+<ion-content color="dark">
+  <ion-card mode="ios" color="dark">
+    <ion-card-content color="dark">
+      <ion-img [src]="imageCountry"></ion-img>
+    </ion-card-content>
+  </ion-card>
+  <ion-list color="dark" mode="ios">
+
+    <ion-item color="dark">
+      <ion-label>Nuevos confirmados</ion-label>
+      <ion-badge slot="end" color="danger">+{{data.NewConfirmed| number}}</ion-badge>
+    </ion-item>
+
+    <ion-item color="dark">
+      <ion-label>Nuevos recuperados</ion-label>
+      <ion-badge slot="end" color="tertiary">+{{data.NewRecovered| number}}</ion-badge>
+    </ion-item>
+
+    <ion-item color="dark">
+      <ion-label>Nuevas muertes</ion-label>
+      <ion-badge slot="end" color="danger">{{data.NewDeaths| number}}</ion-badge>
+    </ion-item>
+
+    <ion-item color="dark">
+      <ion-label>Muertes total</ion-label>
+      <ion-badge slot="end" color="danger">{{data.TotalDeaths| number}}</ion-badge>
+    </ion-item>
+
+    <ion-item color="dark">
+      <ion-label>Total confirmados</ion-label>
+      <ion-badge slot="end" color="danger">{{data.TotalConfirmed | number}}</ion-badge>
+    </ion-item>
+
+    <ion-item color="dark">
+      <ion-label>Total recuperados</ion-label>
+      <ion-badge slot="end" color="tertiary">{{data.TotalConfirmed| number}}</ion-badge>
+    </ion-item>
+
+  </ion-list>
+</ion-content>

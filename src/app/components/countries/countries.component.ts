@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
+import { timer } from 'rxjs';
 import { typeAllCases } from 'src/app/services/service-covid.service';
 import { CountryComponent } from '../country/country.component';
 
@@ -27,6 +28,10 @@ export class CountriesComponent implements OnInit {
   }
   private getByScroll(ev:any){
     
+    timer(100).subscribe(()=>{
+      this.endItems +=10;
+      ev.target.complete();
+    })
   }
 
 }
