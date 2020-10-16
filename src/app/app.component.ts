@@ -17,12 +17,13 @@ export class AppComponent {
   ) {
     
     this.initializeApp();
-    this.statusBar.backgroundColorByName("red");
+    
   }
 
   initializeApp() {
     this.platform.ready().then(() => {
-      this.statusBar.styleDefault();
+      this.statusBar.backgroundColorByName("red");
+      this.statusBar.hide();
       this.splashScreen.hide();
     });
   }
