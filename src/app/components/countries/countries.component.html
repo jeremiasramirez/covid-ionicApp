@@ -1,17 +1,15 @@
 
-<ion-list color="dark">
-  <ion-item  color="dark" *ngFor="let cases of allcases |search:searchs| slice:0:endItems" (click)="openModalCountry(cases)" detail>
-  <!--
-    <ion-thumbnail slot="start">
-      <ion-img [src]="cases.CountryCode "></ion-img>
-    </ion-thumbnail>
-    -->
-    <ion-label class="animate">{{ cases.Country }}
-      <p>{{ cases.CountryCode}}</p>
-    </ion-label>
-
-  </ion-item>
-</ion-list>
+<section class="listAll centered">
+  <ion-list color="dark">
+    <ion-item  color="dark" *ngFor="let cases of allcases |search:searchs| slice:0:endItems" (click)="openModalCountry(cases)" detail>
+  
+      <ion-label class="animate">{{ cases.Country }}
+        <p>{{ cases.CountryCode}}</p>
+      </ion-label>
+  
+    </ion-item>
+  </ion-list>
+</section>
 
 <ion-infinite-scroll threshold="100px" (ionInfinite)="getByScroll($event)" color="primary">
   <ion-infinite-scroll-content loadSpinner="crescent" color="primary">

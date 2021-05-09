@@ -8,6 +8,18 @@
     height: 80px;
   }
   .rotateImg ion-img{
-    width: 80px !important;
+    width: 90px !important;
   }
-   
+  .list__global{
+     min-width:355px;
+  }
+  .list__global, .exploreButton {
+    max-width: 700px !important
+  }
+ 
+
+
+.exploreButton {
+  min-width: 340px;
+ 
+}

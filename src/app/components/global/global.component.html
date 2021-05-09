@@ -10,7 +10,8 @@
 </section>
 
 <app-skeleton [show]="showSkeleton"></app-skeleton>
-  <ion-list  color="dark" *ngIf="!showSkeleton">
+<section class="centered">
+  <ion-list class="list__global animate"  color="dark" *ngIf="!showSkeleton">
     
     <ion-item  color="dark">
       <ion-label class="animate">Nuevas muertes</ion-label> 
@@ -43,9 +44,14 @@
     </ion-item>
 
   </ion-list>
- 
-  <ion-button class="animate" mode="ios" expand="block" color="danger" (click)="toAll()">
+</section>
+  
+  <br />
+  
+<section class="centered">
+  <ion-button class="exploreButton animate" mode="ios" expand="block" color="danger" (click)="toAll()">
     <ion-ripple-effect></ion-ripple-effect>
     Explorar 
     <ion-icon name="chevron-forward-outline"></ion-icon>
   </ion-button>
+</section>

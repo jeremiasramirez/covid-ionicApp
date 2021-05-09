@@ -29,6 +29,13 @@
     </ion-item>
 
     <ion-item color="dark">
+      <ion-label class="animate">Date
+        <p>{{data.CountryCode}}</p>
+      </ion-label>
+      <ion-badge slot="end" color="danger">{{data.Date| date}}</ion-badge>
+    </ion-item>
+
+    <ion-item color="dark">
       <ion-label class="animate">Nuevos recuperados
         <p>{{data.CountryCode}}</p>
       </ion-label>
