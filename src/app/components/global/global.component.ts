@@ -32,7 +32,7 @@ export class GlobalComponent implements OnInit {
     timer(300).subscribe(()=>{this.router.navigate(["home/all"])})
   }
   private getGlobal():void{
-      this.httpService.getGlobal().subscribe((resp)=>{
+      this.httpService.getGlobal().subscribe((resp:any)=>{
         this.global=resp;
       }, ()=>{return}, ()=>{this.showSkeleton=false})
     }

@@ -9,38 +9,38 @@
   <ion-img class="animate" src="../../assets/icon/covid.svg"></ion-img>
 </section>
 
-<app-skeleton [show]="showSkeleton"></app-skeleton>
+<!-- <app-skeleton [show]="showSkeleton"></app-skeleton> -->
 <section class="centered">
-  <ion-list class="list__global animate"  color="dark" *ngIf="!showSkeleton">
+  <ion-list class="list__global animate"  color="dark" >
     
     <ion-item  color="dark">
       <ion-label class="animate">Nuevas muertes</ion-label> 
-      <ion-badge slot="end" color="danger"> +{{ global.NewDeaths |  number}}</ion-badge>
+      <ion-badge slot="end" color="danger"> +{{10000}}</ion-badge>
     </ion-item>
 
     <ion-item color="dark">
       <ion-label class="animate">Nuevos confirmados</ion-label>
-      <ion-badge slot="end" color="danger"> +{{ global.NewConfirmed|  number}}</ion-badge>
+      <ion-badge slot="end" color="danger"> +{{10000}}</ion-badge>
     </ion-item>
 
     <ion-item color="dark">
       <ion-label class="animate">Nuevos recuperados</ion-label>
-      <ion-badge slot="end" color="tertiary"> +{{global.NewRecovered |  number}}</ion-badge> 
+      <ion-badge slot="end" color="tertiary"> +{{10000}}</ion-badge> 
     </ion-item>
 
     <ion-item color="dark">
       <ion-label class="animate">Total confirmados</ion-label> 
-      <ion-badge slot="end" color="danger"> +{{global.TotalConfirmed |  number}}</ion-badge> 
+      <ion-badge slot="end" color="danger"> +{{10000}}</ion-badge> 
     </ion-item>
 
     <ion-item color="dark">
       <ion-label class="animate">Total recuperados</ion-label>
-      <ion-badge slot="end" color="tertiary"> {{global.TotalConfirmed  |  number}}</ion-badge>
+      <ion-badge slot="end" color="tertiary"> +{{10000}}</ion-badge>
     </ion-item>
 
     <ion-item color="dark">
       <ion-label class="animate">Muertes totales </ion-label> 
-      <ion-badge slot="end" color="tertiary"> {{global.TotalDeaths | number}}</ion-badge>
+      <ion-badge slot="end" color="tertiary"> +{{10000}}</ion-badge>
     </ion-item>
 
   </ion-list>

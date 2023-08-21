@@ -7,23 +7,22 @@ import { ConnectComponent } from '../components/connect/connect.component';
 
 @Injectable()
 export class ServiceCovidService {
-  private ApiURI : string = 'https://api.covid19api.com/summary';
+  private ApiURI : string = 'https://api.covidtracking.com/v1/states/daily.json';
   private apiImg: string="https://restcountries.eu/rest/v2/name/{name}";
 
    
 
   constructor( 
-    private connectModal:ModalController,
-    ){   }
+    private connectModal:ModalController, ){   }
 
   private  getGlobalCase(){
-    return ajax.get(this.ApiURI).pipe(delay(500),pluck('response','Global'))
+    return ajax.get(this.ApiURI).pipe(delay(500))
   }
 
 
   private  getAllCase() {
       return ajax.get(this.ApiURI).pipe(
-        delay(700), pluck('response','Countries'))
+        delay(700))
   }
   public getAll(){
     return this.getAllCase()

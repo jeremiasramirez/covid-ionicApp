@@ -10,9 +10,9 @@ import { ServiceCovidService, typeAllCases } from 'src/app/services/service-covi
 })
 export class AllPage implements OnInit {
   public showSkeleton:boolean=true;
-  private allCases:typeAllCases[] = [];
-  private searchResult:string= ""
-  constructor(private service:ServiceCovidService) {}
+  public allCases:typeAllCases[] = [];
+  public searchResult:string= ""
+  constructor(public service:ServiceCovidService) {}
 
   ngOnInit() :void{
     this.verifiedConnection();
@@ -27,8 +27,10 @@ export class AllPage implements OnInit {
   }
 
   private changeAll():void{
-    this.service.getAll().subscribe((resp)=>{
+    this.service.getAll().subscribe((resp:any)=>{
       this.allCases =resp
+      console.log(resp);
+      
     }, ()=>{return}, ()=>{this.showSkeleton=false})
   }
 
