@@ -7,9 +7,9 @@ import { ConnectComponent } from '../components/connect/connect.component';
 
 @Injectable()
 export class ServiceCovidService {
-  private ApiURI : string = 'https://api.covidtracking.com/v1/states/daily.json';
+  private ApiURI : string = 'https://api.api-ninjas.com/v1/covid19';
   private apiImg: string="https://restcountries.eu/rest/v2/name/{name}";
-
+  private apikey:string = "eG88GHVdKgLflG914JlkhQ==JY0YVi9JIbbXtVOP"
    
 
   constructor( 
@@ -20,13 +20,20 @@ export class ServiceCovidService {
   }
 
 
-  private  getAllCase() {
-      return ajax.get(this.ApiURI).pipe(
+  private  getCase(country:string) {
+      return ajax.get(this.ApiURI+`?country=${country}`,{'X-Api-Key': this.apikey}).pipe(
         delay(700))
   }
-  public getAll(){
-    return this.getAllCase()
+  public getCaseSpecific(country:string){
+    return this.getCase(country)
   }
+
+  public getAllCountries(){
+    return ajax.get(`https://restcountries.com/v3.1/all`).pipe(
+      delay(700))
+  }
+
+  
  
   public getGlobal(){
     return this.getGlobalCase();

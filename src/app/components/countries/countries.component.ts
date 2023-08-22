@@ -10,7 +10,7 @@ import { CountryComponent } from '../country/country.component';
   styleUrls: ['./countries.component.scss'],
 })
 export class CountriesComponent implements OnInit {
-  @Input() allcases : typeAllCases[]=[];
+  @Input() allcases : []=[];
   @Input() searchs:string = "";
   private endItems:number=10;
 
@@ -18,11 +18,15 @@ export class CountriesComponent implements OnInit {
   constructor(private modal:ModalController) { }
 
   ngOnInit(){}
-
+  public pk(country){
+    return `https://flagsapi.com/${country}/flat/64.png `
+  }
   private async openModalCountry(data){
+    console.log(data.name.common);
+    
     const modals = await this.modal.create({
       component: CountryComponent,
-      componentProps: {data}
+      componentProps: {data:data.name.common}
     })
     modals.present();
   }

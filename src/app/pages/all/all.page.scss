@@ -1,0 +1,21 @@
+ion-thumbnail, ion-img{
+    width: 50px !important;
+    height: 30px !important;
+    border-radius: 5px !important;
+}
+ 
+.listAll ion-list{
+    min-width: 355px !important;
+    max-width:700px !important;
+}
+.listAll ion-list ion-item:hover{
+    cursor: pointer;
+    opacity: .8;
+}
+
+@media screen and (min-width:500px){
+    .listAll ion-list{
+        min-width: 496px !important;
+        max-width:700px !important;
+    }
+}

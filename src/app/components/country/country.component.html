@@ -1,7 +1,7 @@
 <ion-header class="ion-no-border">
 
   <ion-toolbar  color="dark" mode="ios">
-    <ion-title class="animate">{{ data.Country }}</ion-title>
+    <ion-title class="animate">{{ data }}</ion-title>
 
     <ion-buttons slot="start" mode="md">
       <ion-button color="danger" fill="clear" (click)="closeModals()"> 
@@ -14,7 +14,7 @@
 </ion-header>
 
 <ion-content color="dark">
-  <ion-card mode="ios" color="dark" class="animate">
+  <!-- <ion-card mode="ios" color="dark" class="animate">
     <ion-card-content color="dark" class="animate">
       <ion-img [src]="imageCountry"></ion-img>
     </ion-card-content>
@@ -70,5 +70,5 @@
       <ion-badge slot="end" color="tertiary">{{data.TotalRecovered| number}}</ion-badge>
     </ion-item>
 
-  </ion-list>
+  </ion-list> -->
 </ion-content>

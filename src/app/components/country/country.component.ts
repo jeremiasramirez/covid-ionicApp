@@ -12,10 +12,14 @@ export class CountryComponent implements OnInit {
   private imageCountry:string;
   @Input() data;
 
-  constructor(private closeModal:ModalController) { }
+  constructor(private closeModal:ModalController) { 
+   
+    console.log(this.data);
+    
+  }
 
   ngOnInit():void {
-    this.getImage(this.data.CountryCode) 
+    // this.getImage(this.data.CountryCode) 
   }
   
   private getImage(img:string):void{

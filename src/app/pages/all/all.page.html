@@ -8,15 +8,15 @@
  
     <ion-buttons slot="start">
       <ion-button class="reports" color="danger" fill="clear" routerLink="/home">
-        Reportes diarios
+        Ver reportes diarios
       </ion-button> 
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content color="dark">
-  <app-skeleton [show]="showSkeleton" [arr]=[1,1,1,1,1,1,1,1]></app-skeleton>
+  <!-- <app-skeleton [show]="showSkeleton" [arr]=[1,1,1,1,1,1,1,1]></app-skeleton> -->
 
-  <app-countries *ngIf="!showSkeleton" [allcases]="allCases"
+  <app-countries  [allcases]="allCountries"
   [searchs]="searchResult"></app-countries>
 </ion-content>

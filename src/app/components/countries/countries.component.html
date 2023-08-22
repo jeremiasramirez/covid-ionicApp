@@ -1,14 +1,21 @@
 
-<section class="listAll centered">
-  <ion-list color="dark">
-    <ion-item  color="dark" *ngFor="let cases of allcases |search:searchs| slice:0:endItems" (click)="openModalCountry(cases)" detail>
+<section class="listAll ">
+ 
+  <!--  -->
+  <ion-list class="center__list__countries"  *ngFor="let country of allcases"  (click)="openModalCountry(country)" >
   
-      <ion-label class="animate">{{ cases.Country }}
-        <p>{{ cases.CountryCode}}</p>
+    <ion-thumbnail slot="start">
+      <!-- <ion-img src="https://flagsapi.com/"+country.flag+"/flat/64.png"></ion-img> -->
+    </ion-thumbnail>
+   
+    <ion-item class="animate" >
+  
+      <ion-label class="animate">{{ country.name['common'] }}
+        <p>{{country.flag}}</p>
       </ion-label>
   
     </ion-item>
-  </ion-list>
+  </ion-list>  
 </section>
 
 <ion-infinite-scroll threshold="100px" (ionInfinite)="getByScroll($event)" color="primary">
@@ -16,3 +23,10 @@
 
   </ion-infinite-scroll-content>
 </ion-infinite-scroll>
+<style>
+  .center__list__countries{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+</style>

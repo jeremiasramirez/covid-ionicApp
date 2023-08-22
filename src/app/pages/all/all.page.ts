@@ -11,6 +11,7 @@ import { ServiceCovidService, typeAllCases } from 'src/app/services/service-covi
 export class AllPage implements OnInit {
   public showSkeleton:boolean=true;
   public allCases:typeAllCases[] = [];
+  public allCountries = [];
   public searchResult:string= ""
   constructor(public service:ServiceCovidService) {}
 
@@ -18,6 +19,7 @@ export class AllPage implements OnInit {
     this.verifiedConnection();
     this.changeAll();
     this.openToReconnect();
+    this.setAllCountries()
   }
 
   private async openToReconnect():Promise<any>{
@@ -25,11 +27,18 @@ export class AllPage implements OnInit {
       if (this.showSkeleton==true) this.service.reconnect()
     })
   }
+  public setAllCountries(){
+    this.service.getAllCountries().subscribe((data:any)=>{
+      this.allCountries=data.response
+      console.log(this.allCountries);
+      
+    })
+  }
 
   private changeAll():void{
-    this.service.getAll().subscribe((resp:any)=>{
-      this.allCases =resp
-      console.log(resp);
+    this.service.getCaseSpecific('canada').subscribe((resp:any)=>{
+      this.allCases =resp.response
+      console.log(this.allCases);
       
     }, ()=>{return}, ()=>{this.showSkeleton=false})
   }
